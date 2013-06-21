@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title></title>
+<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+
+<!-- Extra Codiqa features -->
+<link rel="stylesheet" href="codiqa.ext.css">
+<link rel="stylesheet" href="css/main.css">
+
+<!-- jQuery and jQuery Mobile -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.mobile-1.3.1.min.js"></script>
+
+<!-- AngularJs -->
+<script src="js/angular.min.js"></script>
+<script src="js/model/usuario.js"></script>
+
+<!-- Extra Codiqa features -->
+<script src="js/codiqa.ext.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var menuStatus;
+
+        $("a.showMenu").click(function() {
+
+            if (menuStatus != true) {
+                $(".ui-page-active").animate({
+                    marginLeft : "165px",
+                }, 300, function() {
+                    menuStatus = true
+                });
+                return false;
+            } else {
+                $(".ui-page-active").animate({
+                    marginLeft : "0px",
+                }, 300, function() {
+                    menuStatus = false
+                });
+                return false;
+            }
+        });
+
+        $("#menu li a").click(function(e) {
+            var p = $(this).parent();
+            menuStatus = false;
+            if ($(p).hasClass('active')) {
+                $("#menu li").removeClass('active');
+            } else {
+                $("#menu li").removeClass('active');
+                $(p).addClass('active');
+            }
+        });
+
+    });
+</script>
+
+</head>
+<body ng-app>
+    <!-- Menu -->
+    <div id="menu">
+        <h3>Menu</h3>
+        <ul>
+            <li class="active">
+                <a href="#home" class="contentLink">Home</a>
+            </li>
+            <li><a href="#login" data-transition="slide"
+                class="contentLink">Entrar </a></li>
+            <li><a href="#eventos" data-transition="slide"
+                class="contentLink">Eventos </a></li>
+            <li><a href="#listaLutador" data-transition="slide"
+                class="contentLink">Lutadores </a></li>
+            <li><a href="ranking.html" data-ajax="false" data-transition="slide"
+                class="contentLink">Ranking </a></li>
+            <li><a href="cadastroUsuario.html" data-ajax="false" data-transition="slide"
+                class="contentLink">Cadastra-se </a></li>
+        </ul>
+    </div>
+
+<!-- Login -->
+<div data-role="page" class="pages" id="login" ng-controller="loginController">
+    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
+        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
+        class="ui-btn-left showMenu">
+            Menu
+        </a>
+         <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
+        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
+            Voltar
+        </a>
+        <h3>
+            Make Your Bet
+        </h3>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain" class="txt_login">
+            <label for="txt_login">
+                Login
+            </label>
+            <input name="txt_login" id="txt_login" placeholder="Digite o seu login"
+            value="" type="text" data-mini="true">
+        </div>
+        <div data-role="fieldcontain" class="txt_senha">
+            <label for="txt_senha">
+                Senha
+            </label>
+            <input name="txt_senha" id="txt_senha" placeholder="Digite sua senha"
+            value="" type="password" data-mini="true">
+        </div>
+        <input type="submit" data-inline="false" value="Entrar" data-mini="true">
+    </div>
+</div>
+
+</body>
+</html>

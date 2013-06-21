@@ -1,0 +1,162 @@
+/* Put your custom CSS here */
+
+/*INICIO LISTAR APOSTA*/
+table.fight-card {
+margin: 10px 0;
+width: 100%;
+font-size: 12px;
+
+border-top: 1px dotted #ccc;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #aeaeae;
+border-left: 1px solid #ccc;
+border-radius: 16px;
+}
+
+table.fight-card th.col1 {
+padding-left: 10px;
+width: 43%;
+color: #000;
+font-weight: bold;
+text-transform: capitalize;
+text-align: right;
+background: #fff;
+border-top-left-radius: 16px;
+}
+table.fight-card th.col2 {
+width: 14%;
+font-weight: normal;
+text-transform: uppercase;
+text-align: center;
+background: #fff;
+}
+
+table.fight-card th.col3 {
+padding-right: 10px;
+width: 43%;
+color: #000;
+font-weight: bold;
+text-transform: capitalize;
+text-align: left;
+background: #fff;
+border-top-right-radius: 16px;
+}
+
+table.fight-card td.col1 {
+padding-left: 10px;
+width: 43%;
+color: #000;
+font-weight: bold;
+text-align: right;
+background: #fff;
+}
+table.fight-card td.col2 {
+width: 14%;
+font-weight: normal;
+text-align: center;
+background: #fff;
+}
+table.fight-card td.col3 {
+padding-right: 10px;
+width: 43%;
+color: #000;
+font-weight: bold;
+text-align: left;
+background: #fff;
+}
+	table.fight-card td.col1last{
+		padding-left: 10px;
+		width: 43%;
+		color: #000;
+		font-weight: bold;
+		text-align: right;
+		background: #fff;
+		border-bottom-left-radius: 16px;
+	}
+	table.fight-card td.col3last{
+		padding-right: 10px;
+		width: 43%;
+		color: #000;
+		font-weight: bold;
+		text-align: left;
+		background: #fff;
+		border-bottom-right-radius: 16px;
+	}
+
+.lut_nome{
+color: #c41230;
+text-decoration: none;
+padding: 4px 0;
+}
+
+/*FIM LISTAR APOSTA*/
+
+
+/*INICIO LISTAR LUTADORES*/
+.fighter-portrait{
+float:left;
+}
+strong.belt-right {
+padding-left: 30px;
+background: url(images/belt.png) right center no-repeat;
+
+}
+/*FIM LISTAR LUTADORES*/
+
+
+/*INICIO COMENTARIOS*/
+.div_coment{
+	background:rgb(248, 248, 248);
+	padding:20px;
+	border-radius:16px;
+}
+
+
+.div_coment_list{
+	background:rgb(252, 252, 252);
+	background:#fff;
+	padding:20px;
+	border-radius:16px;
+}
+.ul_coment_list{
+margin-left: -35px;
+
+}
+.li_coment_list{
+margin-top:10px;
+padding:1px;
+list-style-type:none;
+border-bottom-style: solid;
+border-color: rgb(150, 150, 150);
+border-bottom-width: 1px;
+border-bottom-left-radius: 2px;
+border-bottom-right-radius: 2px;
+}
+
+.nome_comment{
+font-weight:bold;
+font-size:15px;
+}
+
+.dt_comment{
+font-size:10px;
+color:rgb(150, 150, 150);
+display:block;
+}
+
+.comment_desc{
+font-size:13px;
+
+}
+
+.fs_input_2 .ui-radio{
+	width:50%;
+}
+
+.fs_input_3 .ui-radio{
+	width:33%;
+}
+.fs_input_3 .ui-controlgroup-controls,
+.fs_input_2 .ui-controlgroup-controls{
+width:100%;
+}
