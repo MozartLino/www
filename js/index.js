@@ -1,49 +1,58 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+$(function() {
+	var menuStatus;
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+	$.ajax({
+		url : "http://ufc.rlino.cloudbees.net/deslogar",
+		data : "GET",
+		success : function(data){
+			alert("Bem vindo");
+		}
+	});
+	
+	$("a.showMenu").click(function() {
 
-        console.log('Received Event: ' + id);
-    }
-};
+		if (menuStatus != true) {
+			$(".ui-page-active").animate({
+				marginLeft : "165px",
+			}, 300, function() {
+				menuStatus = true
+			});
+			return false;
+		} else {
+			$(".ui-page-active").animate({
+				marginLeft : "0px",
+			}, 300, function() {
+				menuStatus = false
+			});
+			return false;
+		}
+	});
+//	
+//	$('.pages').live("swipeleft", function(){
+//		if (menuStatus){
+//		$(".ui-page-active").animate({
+//			marginLeft: "0px",
+//		  }, 300, function(){menuStatus = false});
+//		  }
+//	});
+// 
+//	$('.pages').live("swiperight", function(){
+//		if (!menuStatus){
+//		$(".ui-page-active").animate({
+//			marginLeft: "165px",
+//		  }, 300, function(){menuStatus = true});
+//		  }
+//	});
+
+	$("#menu li a").click(function(e) {
+		var p = $(this).parent();
+		menuStatus = false;
+		if ($(p).hasClass('active')) {
+			$("#menu li").removeClass('active');
+		} else {
+			$("#menu li").removeClass('active');
+			$(p).addClass('active');
+		}
+	});
+
+});

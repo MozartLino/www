@@ -19,46 +19,17 @@
 <!-- AngularJs -->
 <script src="js/angular.min.js"></script>
 <script src="js/model/home.js"></script>
+<script src="js/model/usuario.js"></script>
+<script src="js/model/lutador.js"></script>
+<script src="js/model/evento.js"></script>
+
+<script src="js/index.js"></script>
+
 
 <!-- Extra Codiqa features -->
 <script src="js/codiqa.ext.js"></script>
 
-<script type="text/javascript">
-	$(function() {
-		var menuStatus;
 
-		$("a.showMenu").click(function() {
-
-			if (menuStatus != true) {
-				$(".ui-page-active").animate({
-					marginLeft : "165px",
-				}, 300, function() {
-					menuStatus = true
-				});
-				return false;
-			} else {
-				$(".ui-page-active").animate({
-					marginLeft : "0px",
-				}, 300, function() {
-					menuStatus = false
-				});
-				return false;
-			}
-		});
-
-		$("#menu li a").click(function(e) {
-			var p = $(this).parent();
-			menuStatus = false;
-			if ($(p).hasClass('active')) {
-				$("#menu li").removeClass('active');
-			} else {
-				$("#menu li").removeClass('active');
-				$(p).addClass('active');
-			}
-		});
-
-	});
-</script>
 
 </head>
 <body ng-app>
@@ -66,20 +37,29 @@
 	<div id="menu">
 		<h3>Menu</h3>
 		<ul>
-			<li class="active"><a href="#home" data-ajax="false" class="contentLink">Home</a></li>
-			<li><a href="#login" data-transition="slide" class="contentLink">Entrar</a></li>
-			<li><a href="#eventos" data-transition="slide" class="contentLink">Eventos</a></li>
-			<li><a href="#listaLutador" data-transition="slide"	class="contentLink">Lutadores </a></li>
-			<li><a href="ranking.html" data-ajax="false" data-transition="slide" class="contentLink">Ranking </a></li>
-			<li><a href="cadastroUsuario.html" data-ajax="false" data-transition="slide" class="contentLink">Cadastra-se </a></li>
+			<li class="active"><a href="#home" class="contentLink">Home</a></li>
+			<li><a href="#perfil" data-transition="slide"
+				class="contentLink">Perfil</a></li>
+			<li><a href="#login" data-transition="slide" class="contentLink">Login</a></li>
+			<li><a href="#eventos" data-transition="slide"
+				class="contentLink">Eventos</a></li>
+			<li><a href="lutadores" data-transition="slide"
+				class="contentLink">Lutadores </a></li>
+			<li><a href="#ranking" data-transition="slide"
+				class="contentLink">Ranking </a></li>
+			<li><a href="#cadastroUsuario" data-transition="slide"
+				class="contentLink">Cadastra-se </a></li>
 		</ul>
 	</div>
-	<!-- Home -->
-	<div data-role="page" class="pages" id="home" ng-controller="homeController">
-		<div id="header_bar" data-theme="a" data-role="header"	class="header_bar">
+
+	<!-- HOME -->
+	<div data-role="page" class="pages" id="home"
+		ng-controller="homeController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
 			<a data-role="button" href="#page1" data-icon="bars"
-				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> 	
-			<a data-role="button" data-direction="reverse" data-rel="back"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
 				href="#page1" data-icon="arrow-l" data-iconpos="left"
 				class="ui-btn-right"> Voltar </a>
 			<h3>Make Your Bet</h3>
@@ -96,30 +76,285 @@
 			<h5>15 de Junho de 2013 20:00</h5>
 			<ul data-role="listview" data-divider-theme="a" data-inset="false">
 				<li data-role="list-divider" role="heading">Próximos Eventos</li>
-				<li data-theme="c" ng-repeat="evento in abertos">
-					<a href="evento.html?id={{evento.id}}"  data-ajax="false"  data-transition="slide"> {{evento.descricao}} </a>
-				</li>
+				<li data-theme="c" ng-repeat="evento in abertos"><a
+					href="evento.html?id={{evento.id}}" data-ajax="false"
+					data-transition="slide"> {{evento.descricao}} </a></li>
 
 			</ul>
 			<br /> <a data-role="button" href="Eventos.html" data-icon="plus"
 				data-iconpos="left"> Mais Eventos </a> <br />
 			<ul data-role="listview" data-divider-theme="a" data-inset="false">
 				<li data-role="list-divider" role="heading">Próximos Eventos</li>
-				<li data-theme="c" ng-repeat="evento in fechados">
-					<a href="evento.html?id={{evento.id}}"  data-ajax="false"  data-transition="slide"> {{evento.descricao}} </a>
-				</li>
+				<li data-theme="c" ng-repeat="evento in fechados"><a
+					href="evento.html?id={{evento.id}}" data-ajax="false"
+					data-transition="slide"> {{evento.descricao}} </a></li>
 			</ul>
 			<br /> <a data-role="button" href="#page1" data-icon="plus"
 				data-iconpos="left"> Mais Resultados </a> <br />
 		</div>
 	</div>
+
+
+	<!-- RANKING -->
+	<div data-role="page" class="pages" id="ranking"
+		ng-controller="usuarioController">
+
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+
+		<div data-role="content">
+
+			<ul data-role="listview" data-divider-theme="a" data-inset="false">
+
+				<li data-role="list-divider" role="heading">Ranking</li>
+				<li ng-repeat="usuario in usuarios" data-theme="d"><a
+					href="perfilUsuario.html?id={{usuario.id}}"
+					data-id="{{usuario.id}}" data-ajax="false" data-transition="slide"
+					ng-click="getUsuario()"> {{usuario.nome}}<span
+						style="float: right;">{{usuario.pontos}}</span>
+				</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- LOGIN -->
+	<div data-role="page" class="pages" id="login"
+		ng-controller="usuarioLoginController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain" class="txt_login">
+				<label for="txt_login"> Login </label> <input name="txt_login"
+					id="txt_login" placeholder="Digite o seu login" value=""
+					type="text" data-mini="true" ng-model="usuario.login" />
+			</div>
+			<div data-role="fieldcontain" class="txt_senha">
+				<label for="txt_senha"> Senha </label> <input name="txt_senha"
+					id="txt_senha" placeholder="Digite sua senha" value=""
+					type="password" data-mini="true" ng-model="usuario.senha">
+			</div>
+			<input type="submit" data-inline="false" value="Entrar"
+				data-mini="true" ng-click="logar()" />
+		</div>
+	</div>
+
+	<!-- Evento -->
+	<div data-role="page" class="pages" id="eventos"
+		ng-controller="eventoController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<h2>{{evento.descricao}}</h2>
+			<div style="">
+				<img style="width: 290px; height: 130px"
+					src="images/lutas/luta-1.png">
+			</div>
+			<h5>EVANS VS. HENDERSON</h5>
+			<h5>15 de Junho de 2013 20:00</h5>
+			<div data-role="collapsible-set" data-theme="c">
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Roy Nelson VS Sipe Miocic</h3>
+					<p>
+					<table class="fight-card">
+						<tbody>
+							<tr>
+								<th class="col1"><span class="lut_nome">Rashad Evans</span></th>
+								<th class="col2">VS</th>
+								<th class="col3"><span class="lut_nome">Dan
+										Henderson</span></th>
+							</tr>
+							<tr>
+								<td class="col1">22-3-1</td>
+								<td class="col2">Recorde</td>
+								<td class="col3">29-9-0</td>
+							</tr>
+							<tr>
+								<td class="col1">180.3 cm</td>
+								<td class="col2">Altura</td>
+								<td class="col3">185.4 cm</td>
+							</tr>
+							<tr>
+								<td class="col1">93.0 kg</td>
+								<td class="col2">Peso</td>
+								<td class="col3">93.0 kg</td>
+							</tr>
+							<tr>
+								<td class="col1last">190.5 cm</td>
+								<td class="col2">Alcance</td>
+								<td class="col3last">188.0 cm</td>
+							</tr>
+						</tbody>
+					</table>
+					</p>
+				</div>
+				<div data-role="collapsible" data-collapsed="true"
+					ng-repeat="confronto in confrontos">
+					<h3>{{confronto.lutador1.nome}} VS {{confronto.lutador2.nome}}
+					</h3>
+					<p>
+					<table class="fight-card">
+						<tbody>
+							<tr>
+								<th class="col1"><span class="lut_nome">{{confronto.lutador1.nome}}
+								</span></th>
+								<th class="col2">VS</th>
+								<th class="col3"><span class="lut_nome">{{confronto.lutador2.nome}}
+								</span></th>
+							</tr>
+							<tr>
+								<td class="col1">22-3-1</td>
+								<td class="col2">Recorde</td>
+								<td class="col3">29-9-0</td>
+							</tr>
+							<tr>
+								<td class="col1">{{confronto.lutador1.altura}}</td>
+								<td class="col2">Altura</td>
+								<td class="col3">{{confronto.lutador2.altura}}</td>
+							</tr>
+							<tr>
+								<td class="col1">{{confronto.lutador1.peso}}</td>
+								<td class="col2">Peso</td>
+								<td class="col3">{{confronto.lutador2.peso}}</td>
+							</tr>
+							<tr>
+								<td class="col1last">{{confronto.lutador1.envergadura}}</td>
+								<td class="col2">Alcance</td>
+								<td class="col3last">{{confronto.lutador2.envergadura}}</td>
+							</tr>
+						</tbody>
+					</table>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- PERFIL -->
+	<d iv data-role="page" class="pages" id="perfil"
+		ng-controller="usuarioPerfilController">
+	<div id="header_bar" data-theme="a" data-role="header"
+		class="header_bar">
+		<a data-role="button" href="#page1" data-icon="bars"
+			data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+			data-role="button" data-direction="reverse" data-rel="back"
+			href="#page1" data-icon="arrow-l" data-iconpos="left"
+			class="ui-btn-right"> Voltar </a>
+		<h3>Make Your Bet</h3>
+	</div>
+	<div data-role="content">
+		<div style="text-align: center;">
+			<img style="width: 280px; height: 180px"
+				src="images/usuarios/{{usuario.login}}.jpg">
+			<!-- <span style="float:right;">354</span> -->
+		</div>
+
+		<h4>{{usuario.nome}}</h4>
+		<div class="div_coment_list">
+			<h5>
+				Login: <span style="font-weight: normal;">{{usuario.login}}</span>
+			</h5>
+			<h5>
+				Email: <span style="font-weight: normal;">{{usuario.email}}</span>
+			</h5>
+			<h5>
+				CPF: <span style="font-weight: normal;">{{usuario.cpf}}</span>
+			</h5>
+			<h5>
+				Pontuação: <span style="font-weight: normal;">{{usuario.pontos}}</span>
+			</h5>
+			<h5>
+				Ranking: <span style="font-weight: normal;">23º</span>
+			</h5>
+		</div>
+		<input type="submit" data-theme="c" value="EDITAR" data-mini="true">
+		<input type="submit" data-theme="c" value="EXCLUIR CONTA"
+			data-mini="true">
+
+	</div>
+	</div>
+
+	<!-- CADASTRO DE USUARIO -->
+	<div data-role="page" class="pages" id="cadastroUsuario" ng-app
+		ng-controller="usuarioFormController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<h2>Cadastro</h2>
+			<div data-role="fieldcontain">
+				<label for="textinput1"> Nome: </label> <input name=""
+					id="textinput1" placeholder="Digite o seu nome"
+					value="{{usuario.nome}}" type="text" data-mini="true"
+					ng-model="usuario.nome">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput2"> E-mail: </label> <input name=""
+					id="textinput2" placeholder="Digite o seu e-mail"
+					value="{{usuario.email}}" ng-model="usuario.email" type="text"
+					data-mini="true">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput3"> CPF: </label> <input name=""
+					id="textinput3" placeholder="Digite o seu CPF"
+					value="{{usuario.cpf}}" ng-model="usuario.cpf" type="text"
+					data-mini="true">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput4"> Login: </label> <input name=""
+					id="textinput4" placeholder="Digite seu login"
+					value="{{usuario.login}}" ng-model="usuario.login" type="text"
+					data-mini="true">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput5"> Senha: </label> <input name=""
+					id="textinput5" placeholder="Digite sua senha" value=""
+					ng-model="usuario.senha" type="password" data-mini="true">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput6"> Confirme sua senha: </label> <input name=""
+					id="textinput6" placeholder="Confirme sua senha" value=""
+					ng-model="usuario.senha" type="password">
+			</div>
+
+			<a href="" ng-click="salva()">asdfasdf</a> <input type="submit"
+				data-theme="b" value="Cadastrar" data-mini="true" ng-click="salva()" />
+		</div>
+	</div>
 </body>
 </html>
 
-	
-	
-	<!-- Aposta -->
-	<!-- <div data-role="page" class="pages" id="aposta">
+
+
+<!-- Aposta -->
+<!-- <div data-role="page" class="pages" id="aposta">
     <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
         <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
         class="ui-btn-left showMenu">
@@ -225,63 +460,9 @@
     </div>
     </div>
  -->
-	<!-- Eventos -->
-	<!-- <div data-role="page" class="pages" id="eventos">
-    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
-        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
-        class="ui-btn-left showMenu">
-            Menu
-        </a>
-		 <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
-        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
-            Voltar
-        </a>
-        <h3>
-            Make Your Bet
-        </h3>
-    </div>
-    <div data-role="content">
-        <ul data-role="listview" data-divider-theme="a" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Eventos
-            </li>
-            <li data-theme="d">
-			<a href="Evento.html" data-transition="slide">
-                UFC 151
-				</a>
-            </li>
-            <li data-theme="c">
-			<a href="Evento.html" data-transition="slide">
-                UFC 152
-				</a>
-            </li>
-            <li data-theme="d">
-			<a href="Evento.html" data-transition="slide">
-                UFC 154
-				</a>
-            </li>
-			<li data-theme="d">
-			<a href="Evento.html" data-transition="slide">
-                UFC 155
-				</a>
-            </li>
-			<li data-theme="d">
-			<a href="Evento.html" data-transition="slide">
-                UFC 156
-				</a>
-            </li>
-			<li data-theme="d">
-			<a href="Evento.html" data-transition="slide">
-                UFC 157
-				</a>
-            </li>
-			
-        </ul>
-    </div>
-</div> -->
-	
-	<!-- listaLutador -->
-	<!-- <div data-role="page" class="pages" id="listaLutador">
+
+<!-- listaLutador -->
+<!-- <div data-role="page" class="pages" id="listaLutador">
     <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
         <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
         class="ui-btn-left showMenu">
@@ -391,43 +572,11 @@
     </div>
 </div> -->
 
-	<!-- Login -->
-	<!-- <div data-role="page" class="pages" id="login">
-    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
-        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
-        class="ui-btn-left showMenu">
-            Menu
-        </a>
-		 <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
-        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
-            Voltar
-        </a>
-        <h3>
-            Make Your Bet
-        </h3>
-    </div>
-    <div data-role="content">
-        <div data-role="fieldcontain" class="txt_login">
-            <label for="txt_login">
-                Login
-            </label>
-            <input name="txt_login" id="txt_login" placeholder="Digite o seu login"
-            value="" type="text" data-mini="true">
-        </div>
-        <div data-role="fieldcontain" class="txt_senha">
-            <label for="txt_senha">
-                Senha
-            </label>
-            <input name="txt_senha" id="txt_senha" placeholder="Digite sua senha"
-            value="" type="password" data-mini="true">
-        </div>
-        <input type="submit" data-inline="false" value="Entrar" data-mini="true">
-    </div>
-</div> -->
-	
-	
-	<!-- perfilLutador -->
-	<!-- <div data-role="page" class="pages" id="perfilLutador">
+
+
+
+<!-- perfilLutador -->
+<!-- <div data-role="page" class="pages" id="perfilLutador">
     <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
         <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
         class="ui-btn-left showMenu">
@@ -480,47 +629,5 @@
                 </h3>
             </div>
         </div>
-    </div>
-</div> -->
-
-	<!-- perfilUsuario -->
-	<!-- <div data-role="page" class="pages" id="perfilUsuario">
-    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
-        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
-        class="ui-btn-left showMenu">
-            Menu
-        </a>
-		 <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
-        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
-            Voltar
-        </a>
-        <h3>
-            Make Your Bet
-        </h3>
-    </div>
-    <div data-role="content">
-        <div style="text-align: center;">
-            <img style="width: 280px; height: 180px" src="images/ricardo.mozart.jpg">
-			<!-- <span style="float:right;">354</span> -->
-       <!-- </div>
-        <h4>
-            Ricardo Mozart Lino
-        </h4>
-		<h5>
-            Login: <span style="font-weight:normal;">ricardo.mozart</span> 
-        </h5>
-		<h5>
-           Email: <span style="font-weight:normal;">ricardo.mozart@gmail.com</span>
-        </h5>
-        <h5>
-            CPF:  <span style="font-weight:normal;">232.433.565-29</span>
-        </h5>
-		<h5>
-            Pontuação:  <span style="font-weight:normal;">345</span>
-        </h5>
-		<h5>
-            Ranking:  <span style="font-weight:normal;">23º</span>
-        </h5>
-        
     </div>
 </div> -->

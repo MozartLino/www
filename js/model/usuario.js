@@ -16,6 +16,17 @@ function usuarioController($scope, $window, $http) {
 	}();
 }
 
+function usuarioPerfilController($scope, $window, $http) {
+
+	lista = function() {
+
+		$http.get('http://ufc.rlino.cloudbees.net/perfil').success(function(data) {
+			$scope.usuarios = data;
+		});
+
+	}();
+}
+
 function usuarioFormController($scope, $window, $http) {
 			
 	$scope.salva = function() {
@@ -38,3 +49,24 @@ function usuarioFormController($scope, $window, $http) {
 		return value == null ? "POST" : "PUT";
 	}
 }
+
+function usuarioLoginController($scope, $window, $http, $rootScope) {
+
+	$scope.logar = function() {
+		
+		$http.post('http://ufc.rlino.cloudbees.net/logar', {"usuario" : $scope.usuario}).success(function(data) {
+			$rootScope.$broadcast('event:auth-loginConfirmed', data);
+			alert(data.login);
+		});
+	};
+
+}
+
+$(function() {
+	var element = $(".ui-btn-up-c");
+	$.each(element,function(){
+		if($(this).context.textContent == "EXCLUIR CONTA"){
+			$(this).attr("style","background-image:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#ff0000)) !important; ");
+		}
+	});
+});
