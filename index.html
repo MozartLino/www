@@ -43,7 +43,7 @@
 			<li><a href="#login" data-transition="slide" class="contentLink">Login</a></li>
 			<li><a href="#eventos" data-transition="slide"
 				class="contentLink">Eventos</a></li>
-			<li><a href="lutadores" data-transition="slide"
+			<li><a href="#lutadores" data-transition="slide"
 				class="contentLink">Lutadores </a></li>
 			<li><a href="#ranking" data-transition="slide"
 				class="contentLink">Ranking </a></li>
@@ -51,6 +51,7 @@
 				class="contentLink">Cadastra-se </a></li>
 		</ul>
 	</div>
+
 
 	<!-- HOME -->
 	<div data-role="page" class="pages" id="home"
@@ -125,6 +126,7 @@
 		</div>
 	</div>
 
+
 	<!-- LOGIN -->
 	<div data-role="page" class="pages" id="login"
 		ng-controller="usuarioLoginController">
@@ -152,6 +154,7 @@
 				data-mini="true" ng-click="logar()" />
 		</div>
 	</div>
+
 
 	<!-- Evento -->
 	<div data-role="page" class="pages" id="eventos"
@@ -251,48 +254,48 @@
 		</div>
 	</div>
 
+
 	<!-- PERFIL -->
-	<d iv data-role="page" class="pages" id="perfil"
+	<div data-role="page" class="pages" id="perfil"
 		ng-controller="usuarioPerfilController">
-	<div id="header_bar" data-theme="a" data-role="header"
-		class="header_bar">
-		<a data-role="button" href="#page1" data-icon="bars"
-			data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
-			data-role="button" data-direction="reverse" data-rel="back"
-			href="#page1" data-icon="arrow-l" data-iconpos="left"
-			class="ui-btn-right"> Voltar </a>
-		<h3>Make Your Bet</h3>
-	</div>
-	<div data-role="content">
-		<div style="text-align: center;">
-			<img style="width: 280px; height: 180px"
-				src="images/usuarios/{{usuario.login}}.jpg">
-			<!-- <span style="float:right;">354</span> -->
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
 		</div>
+		<div data-role="content">
+			<div style="text-align: center;">
+				<img style="width: 280px; height: 180px"
+					src="images/usuarios/{{usuario.login}}.jpg">
+				<!-- <span style="float:right;">354</span> -->
+			</div>
 
-		<h4>{{usuario.nome}}</h4>
-		<div class="div_coment_list">
-			<h5>
-				Login: <span style="font-weight: normal;">{{usuario.login}}</span>
-			</h5>
-			<h5>
-				Email: <span style="font-weight: normal;">{{usuario.email}}</span>
-			</h5>
-			<h5>
-				CPF: <span style="font-weight: normal;">{{usuario.cpf}}</span>
-			</h5>
-			<h5>
-				Pontuação: <span style="font-weight: normal;">{{usuario.pontos}}</span>
-			</h5>
-			<h5>
-				Ranking: <span style="font-weight: normal;">23º</span>
-			</h5>
+			<h4>{{usuario.nome}}</h4>
+			<div class="div_coment_list">
+				<h5>
+					Login: <span style="font-weight: normal;">{{usuario.login}}</span>
+				</h5>
+				<h5>
+					Email: <span style="font-weight: normal;">{{usuario.email}}</span>
+				</h5>
+				<h5>
+					CPF: <span style="font-weight: normal;">{{usuario.cpf}}</span>
+				</h5>
+				<h5>
+					Pontuação: <span style="font-weight: normal;">{{usuario.pontos}}</span>
+				</h5>
+				<h5>
+					Ranking: <span style="font-weight: normal;">23º</span>
+				</h5>
+			</div>
+			<input type="submit" data-theme="c" value="EDITAR" data-mini="true">
+			<input type="submit" data-theme="c" value="EXCLUIR CONTA"
+				data-mini="true">
 		</div>
-		<input type="submit" data-theme="c" value="EDITAR" data-mini="true">
-		<input type="submit" data-theme="c" value="EXCLUIR CONTA"
-			data-mini="true">
-
-	</div>
 	</div>
 
 	<!-- CADASTRO DE USUARIO -->
@@ -348,232 +351,326 @@
 				data-theme="b" value="Cadastrar" data-mini="true" ng-click="salva()" />
 		</div>
 	</div>
-</body>
-</html>
 
 
-
-<!-- Aposta -->
-<!-- <div data-role="page" class="pages" id="aposta">
-    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
-        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
-        class="ui-btn-left showMenu">
-            Menu
-        </a>
-		 <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
-        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
-            Voltar
-        </a>
-        <h3>
-            Make Your Bet
-        </h3>
-    </div>
-    <div data-role="content">
-        <div style="text-align:center;">
-            <img style="width: 288px; height: 154px" src="images/lutas/luta1.png">
-        </div>
-        <h2>
-            Evans vs. Henderson
-        </h2>
-        <h5>
-            15 de Junho de 2013 20:00
-        </h5>
-        <h5>
-            MTS Centre
-        </h5>
-        <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="fs_input_2">
-                <legend>
-                    Vencedor:
-                </legend>
-                <input id="radio4" name="" value="radio1" type="radio">
-                <label for="radio4">
-                    Evans
-                </label>
-                <input id="radio5" name="" value="radio5" type="radio">
-                <label for="radio5">
-                    Henderson
-                </label>
-            </fieldset>
-        </div>
-        <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="fs_input_3">
-                <legend>
-                    Escolha o tipo de vitória:
-                </legend>
-                <input id="radio1" name="" value="Finalização" type="radio">
-                <label for="radio1">
-                    Nocaute
-                </label>
-                <input id="radio2" name="" value="radio2" type="radio">
-                <label for="radio2">
-                    Finalização
-                </label>
-                <input id="radio3" name="" value="radio3" type="radio">
-                <label for="radio3">
-                    Pontos
-                </label>
-            </fieldset>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="textinput1">
-                Aposta:
-            </label>
-            <input name="txt_aposta" id="textinput1" placeholder="Digite aqui quanto deseja apostar"
-            value="" type="text" data-mini="true">
-        </div>
-        <input type="submit" data-theme="c" value="APOSTAR" data-mini="true">
-		<br />
-		<div data-role="fieldcontain" class="div_coment">
-			<h3>
-				Comentários
-			</h3>
+	<!-- LUTADOR -->
+	<div data-role="page" class="pages" id="lutadores"
+		ng-controller="lutadorController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		<div data-role="content">
+			<h3 style="margin: 5px;">Lutadores</h3>
 			<br />
-			<div class="div_coment_list">
-				<ul class="ul_coment_list">
-					<li class="li_coment_list">
-					<span class="nome_comment">Ricardo Mozart</span>
-					<span class="dt_comment">Enviado em 15/07/2013 12:34</span>
-					<p class="comment_desc">Certeza que Evans ganha, ele esta demonstrando um ótimo desempenho nas ultimas lutas, Vai Evans!</p>
-					</li>
-					<li class="li_coment_list">
-					<span class="nome_comment">Diego Shibata</span>
-					<span class="dt_comment">Enviado em 14/07/2013 13:56</span>
-					<p class="comment_desc">Henderson Monstro!</p>
-					</li>
-					<li class="li_coment_list">
-					<span class="nome_comment">Victor Miguel</span>
-					<span class="dt_comment">Enviado em 13/07/2013 14:04</span>
-					<p class="comment_desc">Henderson ganha com certeza, ele tem muita experiência comparado com o Evans, olha o histórico dos 2, não tem nem chance pro Evans.</p>
-					</li>
-					
-				</ul>
-			</div>
-			<div data-role="fieldcontain" class="textarea_comentario">
-				<label for="textarea_comentario">
-				  Digite aqui o seu comentario:
-				</label>
-				<textarea name="textarea_comentario" id="textarea_comentario" placeholder="Digite aqui o seu comentário:"
-				data-mini="true"></textarea>
+			<div data-role="collapsible-set" data-theme="a"
+				data-content-theme="d">
+				<div data-role="collapsible">
+					<h3>Peso Pesados</h3>
+						<ul data-role="listview" data-divider-theme="b" data-inset="false">
+							<li data-theme="c" ng-repeat="lutador in pesado" ng-click="redirectPerfil()"><img
+								class="fighter-portrait"
+								src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+								height="35"> <a
+								href="perfilLutador.html?id={{lutador.id}}" data-ajax="false"
+								data-transition="slide"> {{lutador.nome}} <strong
+									class="belt-right">&nbsp;</strong>
+							</a></li>
+						</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Meio Pesado</h3>
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in meioPesado" ng-click="redirectPerfil()><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Medios</h3>
+
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in medio" ng-click="redirectPerfil()><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Meio Medio</h3>
+
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in meioMedio"><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Peso Leve</h3>
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in leve"><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Peso Pena</h3>
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in pena"><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Peso Galo</h3>
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in galo"><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					x
+					<h3>Pesos Mosca</h3>
+					<ul data-role="listview" data-divider-theme="b" data-inset="false">
+						<li data-theme="c" ng-repeat="lutador in mosca"><img
+							class="fighter-portrait"
+							src="images/lutadores/{{lutador.id}}.png" alt="Silva, Anderson"
+							height="35"> <a href="perfilLutador.html?id={{lutador.id}}"
+							data-ajax="false" data-transition="slide"> {{lutador.nome}} <strong
+								class="belt-right">&nbsp;</strong>
+						</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-    </div>
-    </div>
- -->
-
-<!-- listaLutador -->
-<!-- <div data-role="page" class="pages" id="listaLutador">
-    <div id="header_bar" data-theme="a" data-role="header" class="header_bar">
-        <a data-role="button" href="#page1" data-icon="bars" data-iconpos="left"
-        class="ui-btn-left showMenu">
-            Menu
-        </a>
-		 <a data-role="button" data-direction="reverse" data-rel="back" href="#page1"
-        data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
-            Voltar
-        </a>
-        <h3>
-            Make Your Bet
-        </h3>
-    </div>
-    <div data-role="content">
-		<h3 style="margin:5px;">
-            Lutadores
-        </h3>
-		<br />
-        <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
-		    <div data-role="collapsible">
-                <h3>
-                    Peso Pesados
-                </h3>
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Meio Pesado
-                </h3>
-                <div data-role="collapsible-set">
-                    
-                </div>
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Medios
-                </h3>
-                
-                    
-					    <ul data-role="listview" data-divider-theme="b" data-inset="false">
-                    <li data-theme="c">
-					<img class="fighter-portrait" src="images/lutadores/anderson-silva.png" alt="Silva, Anderson" height="35">
-						<a href="PerfilLutador.html" data-transition="slide">
-						
-                            Anderson Silva
-							<strong class="belt-right">&nbsp;</strong>
-                        </a>
-						
-                    </li>
-                    <li data-theme="c">
-					<img class="fighter-portrait" src="images/lutadores/Vitor-Belfort.png" alt="Silva, Anderson" height="35">
-                        <a href="PerfilLutador.html" data-transition="slide">
-						
-                            Victor Belfort
-                        </a>
-                    </li>
-					<li data-theme="c">
-					<img class="fighter-portrait" src="images/lutadores/Chael-Sonnen.png" alt="Silva, Anderson" height="35">
-                        <a href="PerfilLutador.html" data-transition="slide">
-						Chael Sonnen
-                        </a>
-                    </li>
-                </ul>
-                
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Meio Medio
-                </h3>
-                
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Peso Leve
-                </h3>
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Peso Pena
-                </h3>
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Peso Galo
-                </h3>
-            </div>
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>
-                    Pesos Mosca
-                </h3>
-                   <ul data-role="listview" data-divider-theme="b" data-inset="false">
-                    <li data-theme="c">
-					<img class="fighter-portrait" src="images/lutadores/Demetrious-Johnson.png" alt="Silva, Anderson" height="35">
-                        <a href="PerfilLutador.html" data-transition="slide">
-                            Demetrious Johnson
-                        </a>
-                    </li>
-                    <li data-theme="c">
-					<img class="fighter-portrait" src="images/lutadores/john-lineker.png" alt="Silva, Anderson" height="35">
-                        <a href="PerfilLutador.html" data-transition="slide">
-                            John Lineker
-                        </a>
-                    </li>
-                </ul>
-      
-            </div>
-        </div>
-    </div>
-</div> -->
+	</div>
 
 
+	<!-- PERFIL LUTADOR -->
+	<div data-role="page" class="pages" id="perfilLutador"
+		ng-controller="lutadorController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<div style="">
+				<img style="width: 288px; height: 180px"
+					src="images/lutadores/grande/{{lutador.id}}.png">
+			</div>
+			<h2>{{lutador.nome}}</h2>
+			<h5>17-2-0 (W-L-D)</h5>
+			<h5>Próxima Luta: Igor Pokrajac in UFC 161: Evans vs. Henderson
+			</h5>
+			<div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Informações Lutador</h3>
+					<p
+						style="background: rgb(253, 253, 253); border-radius: 16px; padding: 10px;">
+						<span style="font-weight: bold;">Apelido:</span> <br /> <span
+							style="font-weight: bold;">De:</span> {{lutador.lugar}}<br /> <span
+							style="font-weight: bold;">Data Nascimento:</span>
+						{{lutador.dataNascimento}}<br /> <span style="font-weight: bold;">Altura:</span>
+						{{lutador.altura}} cm<br /> <span style="font-weight: bold;">Peso:</span>
+						{{lutador.peso}} kg<br /> <span style="font-weight: bold;">Envergadura:</span>
+						{{lutador.envergadura}}<br />
+					</p>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Mídia</h3>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Histórico</h3>
+					<p
+						style="background: rgb(253, 253, 253); border-radius: 16px; padding: 10px;">
+						{{lutador.sumario}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<!-- Evento -->
+	<div data-role="page" class="pages" id="eventos"
+		ng-controller="eventoController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<h2>{{confronto.id}}</h2>
+			<div style="text-align: center; padding-bottom: 10px;">
+				<div style="text-align: center;">
+					<a href="#aposta"> <img style="width: 290px; height: 130px"
+						src="images/lutas/luta1.png">
+					</a>
+				</div>
+				<div>
+					<div style="width: 290px; text-align: left; margin: 0 auto;">
+						<h5>{{confronto.lutador1.nome}} VS. HENDERSON</h5>
+						<h5>15 de Junho de 2013 20:00</h5>
+					</div>
+				</div>
+			</div>
+			<div data-role="collapsible-set" data-theme="c">
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Roy Nelson VS Sipe Miocic</h3>
+					<p>
+					<table class="fight-card">
+						<tbody>
+							<tr>
+								<th class="col1"><span class="lut_nome">Rashad Evans</span></th>
+								<th class="col2">VS</th>
+								<th class="col3"><span class="lut_nome">Dan
+										Henderson</span></th>
+							</tr>
+							<tr>
+								<td class="col1">22-3-1</td>
+								<td class="col2">Recorde</td>
+								<td class="col3">29-9-0</td>
+							</tr>
+							<tr>
+								<td class="col1">180.3 cm</td>
+								<td class="col2">Altura</td>
+								<td class="col3">185.4 cm</td>
+							</tr>
+							<tr>
+								<td class="col1">93.0 kg</td>
+								<td class="col2">Peso</td>
+								<td class="col3">93.0 kg</td>
+							</tr>
+							<tr>
+								<td class="col1last">190.5 cm</td>
+								<td class="col2">Alcance</td>
+								<td class="col3last">188.0 cm</td>
+							</tr>
+						</tbody>
+					</table>
+					</p>
+					<input type="submit" data-theme="c" value="APOSTAR"
+						data-mini="true">
+				</div>
+				<div data-role="collapsible">
+					<h3>Rashad Evans VS Dan Henderson</h3>
+				</div>
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>Ryan Jimmo VS Igor Pokrajac</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Aposta -->
+	<div data-role="page" class="pages" id="aposta"
+		ng-controller="eventoController">
+		<div id="header_bar" data-theme="a" data-role="header"
+			class="header_bar">
+			<a data-role="button" href="#page1" data-icon="bars"
+				data-iconpos="left" class="ui-btn-left showMenu"> Menu </a> <a
+				data-role="button" data-direction="reverse" data-rel="back"
+				href="#page1" data-icon="arrow-l" data-iconpos="left"
+				class="ui-btn-right"> Voltar </a>
+			<h3>Make Your Bet</h3>
+		</div>
+		<div data-role="content">
+			<div style="text-align: center;">
+				<img style="width: 288px; height: 154px"
+					src="images/lutas/luta1.png">
+			</div>
+			<h2>Evans vs. Henderson</h2>
+			<h5>15 de Junho de 2013 20:00</h5>
+			<h5>MTS Centre</h5>
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal"
+					data-mini="true" class="fs_input_2">
+					<legend> Vencedor: </legend>
+					<input id="radio4" name="" value="radio1" type="radio"> <label
+						for="radio4"> Evans </label> <input id="radio5" name=""
+						value="radio5" type="radio"> <label for="radio5">
+						Henderson </label>
+				</fieldset>
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textinput1"> Aposta: </label> <input name="txt_aposta"
+					id="textinput1" placeholder="Digite aqui quanto deseja apostar"
+					value="" type="text" data-mini="true">
+			</div>
+			<input type="submit" data-theme="c" value="APOSTAR" data-mini="true"
+				ng-click="redirectForHome()"> <br />
+			<div data-role="fieldcontain" class="div_coment">
+				<h3>Comentários</h3>
+				<br />
+				<div class="div_coment_list">
+					<ul class="ul_coment_list">
+						<li class="li_coment_list"><span class="nome_comment">Ricardo
+								Mozart</span> <span class="dt_comment">Enviado em 15/07/2013
+								12:34</span>
+							<p class="comment_desc">Certeza que Evans ganha, ele esta
+								demonstrando um ótimo desempenho nas ultimas lutas, Vai Evans!</p></li>
+						<li class="li_coment_list"><span class="nome_comment">Diego
+								Shibata</span> <span class="dt_comment">Enviado em 14/07/2013
+								13:56</span>
+							<p class="comment_desc">Henderson Monstro!</p></li>
+						<li class="li_coment_list"><span class="nome_comment">Victor
+								Miguel</span> <span class="dt_comment">Enviado em 13/07/2013
+								14:04</span>
+							<p class="comment_desc">Henderson ganha com certeza, ele tem
+								muita experiência comparado com o Evans, olha o histórico dos 2,
+								não tem nem chance pro Evans.</p></li>
+
+					</ul>
+				</div>
+				<div data-role="fieldcontain" class="textarea_comentario">
+					<label for="textarea_comentario"> Digite aqui o seu
+						comentario: </label>
+					<textarea name="textarea_comentario" id="textarea_comentario"
+						placeholder="Digite aqui o seu comentário:" data-mini="true"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
 
 <!-- perfilLutador -->
 <!-- <div data-role="page" class="pages" id="perfilLutador">

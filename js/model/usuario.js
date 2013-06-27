@@ -20,7 +20,7 @@ function usuarioPerfilController($scope, $window, $http) {
 
 	lista = function() {
 
-		$http.get('http://ufc.rlino.cloudbees.net/perfil').success(function(data) {
+		$http.get('http://ufc.rlino.cloudbees.net/usuarios/1').success(function(data) {
 			$scope.usuarios = data;
 		});
 
@@ -56,7 +56,6 @@ function usuarioLoginController($scope, $window, $http, $rootScope) {
 		
 		$http.post('http://ufc.rlino.cloudbees.net/logar', {"usuario" : $scope.usuario}).success(function(data) {
 			$rootScope.$broadcast('event:auth-loginConfirmed', data);
-			alert(data.login);
 		});
 	};
 

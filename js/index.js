@@ -5,7 +5,6 @@ $(function() {
 		url : "http://ufc.rlino.cloudbees.net/deslogar",
 		data : "GET",
 		success : function(data){
-			alert("Bem vindo");
 		}
 	});
 	
